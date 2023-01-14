@@ -17,25 +17,27 @@
   </form>
 
   <h1>Apply Point-Triggering Events</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Available</th>
-        <th>Applied</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% events.forEach(e => { %>
-        <tr>
-          <td>
-            <form action="/queens/<%= queen._id %>/events" value="<%= e._id %>" method="POST">
-              <%= e.name %>, <%= e.points %> <button type="submit"> --> </button>
-            </form>
-          </td>
-        </tr>
+  <h3>Available</h3>
+  <ul>
+    <% events.forEach(e => { %>
+      <li>
+          <form action="/queens/<%= queen._id %>/events" method="POST">
+            <%= e.name %>, <%= e.points %>
+            <input type="hidden" name="event" value="<%= e._id %>">
+            <button type="submit"> --> </button>
+          </form>
+      </li>
+    <% }) %>
+  </ul>
+
+  <h3>Applied</h3>
+  <ul>
+    <% queen.pointEvents.forEach(e => { %>
+      <li>
+        <%= e.name %>, <%= e.points %>
+      </li>
       <% }) %>
-    </tbody>
-  </table>
+  </ul>
 </main>
 
 <%- include('../partials/footer') %>

@@ -10,9 +10,7 @@
       <h3>image here</h3>
       <p><%= q.name %></p>
       <p><%= q.hometown %></p>
-      <p><%= q.pointEvents.reduce((prev, event) => {
-        prev.points + event.points
-      }, 0) %>
+      <p><%= q.totalPoints %>
       </p>
       <a href="/queens/<%= q._id %>/edit">Edit</a>
     </div>

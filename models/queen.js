@@ -10,6 +10,7 @@ const queenSchema = new Schema({
   createdBy: { type: Schema.Types.ObjectId, ref: "Profile" },
   eliminated: Boolean,
   pointEvents: [{ type: Schema.Types.ObjectId, ref: "Event" }],
+  totalPoints: { type: Number, default: 0}
 }, {
   timestamps: true
 })

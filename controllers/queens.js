@@ -5,9 +5,12 @@ import { Event } from "../models/event.js"
 function index(req, res) {
   Queen.find({})
   .then(queens => {
+    // const total = queens.pointEvents.reduce((prev, event) => {
+    //   prev + event.points
+    // }, 0) 
     res.render('queens', {
       queens: queens,
-      title: "All Queens"
+      title: "All Queens",
     })
   })
   .catch(err => {
@@ -41,6 +44,7 @@ function create(req, res) {
 
 function edit(req, res) {
   Queen.findById(req.params.id)
+  .populate('pointEvents')
   .then(queen => {
     Event.find({})
     .then(events => {
@@ -75,10 +79,28 @@ function update(req, res) {
   })
 }
 
+function addEvent(req, res) {
+  Queen.findById(req.params.id)
+  .then(queen => {
+    queen.pointEvents.push(req.body.event)
+    Event.findById(req.body.event)
+    .then(event => {
+      queen.totalPoints += event.points
+      queen.save()
+      res.redirect(`/queens/${queen._id}/edit`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 export {
   newQueen as new,
   create,
   index,
   edit,
   update,
+  addEvent,
 }
