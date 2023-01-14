@@ -4,8 +4,14 @@
 </head>
 <body>
   <nav>
-    <a href="/"  class="left"><img src="/FDR logo 4.png" alt="logo" style="width:40px"></a>
-    <div>
+    <div class="left">
+      <a href="/"><img src="/FDR logo 4.png" alt="logo" style="width:40px"></a>
+      <% if (user) { %>
+        <a href="/queens/new">New Queen</a>
+        <a href="/events/new">New Event</a>
+      <% } %>
+    </div>
+    <div class="right">
     <% if (user) { %>
       <p>Hello, <%= user.profile.name %></p>
       <p>
@@ -13,10 +19,9 @@
         src="<%= user.profile.avatar %>"
         alt="<%= user.profile.name %> avatar"
         style="width:30px"
-        class="right"
         />
       </p>
-      <a href="/auth/logout" class="right">
+      <a href="/auth/logout">
         <button type="submit">Logout</button>
       </a>
     <% } else { %>
