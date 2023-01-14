@@ -25,8 +25,12 @@ nav {
   color: #1a1a1a;
   display: flex;
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
   min-height: 60px;
+}
+
+nav > * {
+  margin: 5px;
 }
 
 main {
