@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>hrllo </h1>
+  <h1>Edit Her</h1>
   <form action="/queens/<%= queen._id %>?_method=PUT" method="POST">
     <label>Name:
       <input type="text" name="name" value="<%= queen.name %>">
@@ -15,6 +15,27 @@
     </label>
     <button type="submit">Update</button>
   </form>
+
+  <h1>Apply Point-Triggering Events</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Available</th>
+        <th>Applied</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% events.forEach(e => { %>
+        <tr>
+          <td>
+            <form action="/queens/<%= queen._id %>/events" value="<%= e._id %>" method="POST">
+              <%= e.name %>, <%= e.points %> <button type="submit"> --> </button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
 </main>
 
 <%- include('../partials/footer') %>

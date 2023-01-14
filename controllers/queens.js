@@ -1,5 +1,5 @@
 import { Queen } from "../models/queen.js"
-import { Profile } from "../models/profile.js"
+import { Event } from "../models/event.js"
 
 
 function index(req, res) {
@@ -42,9 +42,17 @@ function create(req, res) {
 function edit(req, res) {
   Queen.findById(req.params.id)
   .then(queen => {
-    res.render(`queens/edit`, {
-      queen: queen,
-      title: 'Update Queen'
+    Event.find({})
+    .then(events => {
+      res.render(`queens/edit`, {
+        events: events,
+        queen: queen,
+        title: 'Update Queen'
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
     })
   })
   .catch(err => {
