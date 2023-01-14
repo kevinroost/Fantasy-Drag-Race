@@ -1,8 +1,12 @@
 import { Event } from "../models/event.js"
 
-function newEvent(req, res) {
-  res.render('events/new', {
-      title: "New Queen",
+function index(req, res) {
+  Event.find({})
+  .then(events => {
+    res.render('events', {
+      title: "New Event",
+      events: events
+    })
   })
   .catch(err => {
     console.log(err)
@@ -10,6 +14,20 @@ function newEvent(req, res) {
   })
 }
 
+function create(req, res) {
+  Event.create(req.body)
+  res.redirect('/events')
+}
+
+function deleteEvent(req, res) {
+  Event.findByIdAndDelete(req.params.id)
+  .then(events => {
+    res.redirect('/events')
+  })
+}
+
 export {
-  newEvent as new,
+  index,
+  create,
+  deleteEvent as delete,
 }
