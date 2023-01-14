@@ -1,11 +1,12 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/queens/index.css" />
 <%- include('../partials/nav') %>
 
 <main>
   <h1>MY GIRLS</h1>
   <section id="queen-card">
     <% queens.forEach(q => { %>
-    <div>
+    <div <%- q.eliminated ? 'class="eliminated"' : 'class=""' %>
       <h3>image here</h3>
       <p><%= q.name %></p>
       <p><%= q.hometown %></p>
@@ -13,6 +14,7 @@
         prev.points + event.points
       }, 0) %>
       </p>
+      <p>Eliminated? <input type="checkbox" name="eliminated"></p>
     </div>
 
     <% }) %>
