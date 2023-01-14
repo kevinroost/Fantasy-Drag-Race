@@ -4,14 +4,16 @@
 </head>
 <body>
   <nav>
+    <p><img src="/FDR logo 4.png" alt="logo" style="width:40px" class="left"></p>
+    <div>
     <% if (user) { %>
       <p>Hello, <%= user.profile.name %></p>
       <p>
         <img
         src="<%= user.profile.avatar %>"
         alt="<%= user.profile.name %> avatar"
-        style="width:50px"
-        id="user-logo"
+        style="width:30px"
+        class="right"
         />
       </p>
       <a href="/auth/logout" class="right">
@@ -35,4 +37,5 @@
         data-logo_alignment="left"
       ></div>
     <% } %>
+    </div>
   </nav>

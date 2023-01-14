@@ -25,12 +25,15 @@ nav {
   color: #1a1a1a;
   display: flex;
   align-items: center;
-  /* padding: 10px; */
+  justify-content: space-between;
   min-height: 60px;
 }
 
 nav > * {
   margin: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 main {
@@ -40,6 +43,11 @@ main {
   flex-direction: column;
 }
 
+.left {
+  justify-self: flex-start;
+}
+
 .right {
-  margin-left: auto;
+  /* margin-left: auto; */
+  justify-self: flex-end;
 }
