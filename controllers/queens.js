@@ -31,8 +31,35 @@ function create(req, res) {
   req.body.eliminated = false
   Queen.create(req.body)
   .then(queens => {
-    console.log(queens);
     res.redirect('/queens')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
+function edit(req, res) {
+  Queen.findById(req.params.id)
+  .then(queen => {
+    res.render(`queens/edit`, {
+      queen: queen,
+      title: 'Update Queen'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
+function update(req, res) {
+  req.body.eliminated = !!req.body.eliminated
+  console.log(req.body.eliminated);
+  Queen.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(queen => {
+    res.redirect(`/queens`)
+    console.log(queen);
   })
   .catch(err => {
     console.log(err)
@@ -44,4 +71,6 @@ export {
   newQueen as new,
   create,
   index,
+  edit,
+  update,
 }
