@@ -2,7 +2,21 @@
 <%- include('../partials/nav') %>
 
 <main>
+  <h1>MY GIRLS</h1>
+  <section id="queen-card">
+    <% queens.forEach(q => { %>
+    <div>
+      <h3>image here</h3>
+      <p><%= q.name %></p>
+      <p><%= q.hometown %></p>
+      <p><%= q.pointEvents.reduce((prev, event) => {
+        prev.points + event.points
+      }, 0) %>
+      </p>
+    </div>
 
+    <% }) %>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>

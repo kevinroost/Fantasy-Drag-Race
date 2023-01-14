@@ -1,6 +1,7 @@
 import { Queen } from "../models/queen.js"
 import { Profile } from "../models/profile.js"
 
+
 function index(req, res) {
   Queen.find({})
   .then(queens => {
@@ -32,7 +33,11 @@ function create(req, res) {
   .then(queens => {
     console.log(queens);
     res.redirect('/queens')
-  });
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
 }
 
 export {
