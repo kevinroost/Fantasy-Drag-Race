@@ -1,10 +1,21 @@
 import { Queen } from "../models/queen.js"
 import { Event } from "../models/event.js"
+import { tallyQueensTotalPoints } from "../middleware/middleware.js"
 
 
 function index(req, res) {
   Queen.find({})
+  .populate({
+    path: 'episodes',
+    model: 'Episode',
+    populate: {
+      path: 'pointEvents',
+      model: 'Event'
+    }
+  })
   .then(queens => {
+    tallyQueensTotalPoints(queens)
+    queens.forEach(q => {console.log('line 10', q.totalPoints)});
     res.render('queens', {
       queens: queens,
       title: "All Queens",
@@ -74,12 +85,13 @@ function update(req, res) {
 
 function addEvent(req, res) {
   Queen.findById(req.params.queenId)
+  .populate()
   .then(queen => {
     queen.episodes.id(req.params.episodeId).pointEvents.push(req.body.selectedEvent)
     Event.findById(req.body.selectedEvent)
     .then(event => {
-      queen.totalPoints += event.points
       queen.save()
+      console.log('line 84', queen.episodes);
       res.redirect(`/queens/${queen._id}`)
     })
   })
@@ -136,18 +148,10 @@ function removeEvent(req, res) {
   .then(queen => {
     let targetId = req.params.eventId
     queen.episodes.id(req.params.episodeId).pointEvents = queen.episodes.id(req.params.episodeId).pointEvents.filter(event => !String(event).includes(targetId))
-    //   if (e.id === req.params.episodeId) {
-    //     console.log('match');
-    //     console.log(targetId);
-    //     e.pointEvents = [...e.pointEvents].filter((event) => event.id !== targetId)
-    //     console.log(e.pointEvents);
-    //   }
-    // })
-    console.log(targetId);
-    console.log(queen.episodes.id(req.params.episodeId).pointEvents);
-    console.log(queen.episodes);
-    queen.save()
-    .then(() => {
+    Event.findById(req.params.eventId)
+    .then((event) => {
+      queen.totalPoints -= event.points
+      queen.save()
       res.redirect(`/queens/${queen.id}`)
       console.log(queen.id);
     })

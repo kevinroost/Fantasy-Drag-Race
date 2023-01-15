@@ -11,6 +11,7 @@ import passport from 'passport'
 
 // import custom middleware
 import { passDataToView } from './middleware/middleware.js'
+import { tallyQueensTotalPoints } from './middleware/middleware.js'
 
 // connect to MongoDB with mongoose
 import './config/database.js'
@@ -55,9 +56,9 @@ app.use(
       sameSite: 'lax',
     },
   })
-)
-
-// passport middleware
+  )
+  
+  // passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
