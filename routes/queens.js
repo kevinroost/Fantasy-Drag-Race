@@ -12,6 +12,7 @@ router.post('/:queenId/episodes/:episodeId/pointEvents', queensCtrl.addEvent)
 router.post('/:id/episodes', queensCtrl.createEpisode)
 router.put('/:id', queensCtrl.update)
 router.delete('/:queenId/episodes/:episodeId', queensCtrl.delete)
+router.delete('/:queenId/episodes/:episodeId/pointEvents/:eventId', queensCtrl.removeEvent)
 
 export {
   router

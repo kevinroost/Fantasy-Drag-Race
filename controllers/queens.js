@@ -131,6 +131,37 @@ function deleteEpisode(req, res) {
   })
 }
 
+function removeEvent(req, res) {
+  Queen.findById(req.params.queenId)
+  .then(queen => {
+    let targetId = req.params.eventId
+    queen.episodes.id(req.params.episodeId).pointEvents = queen.episodes.id(req.params.episodeId).pointEvents.filter(event => !String(event).includes(targetId))
+    //   if (e.id === req.params.episodeId) {
+    //     console.log('match');
+    //     console.log(targetId);
+    //     e.pointEvents = [...e.pointEvents].filter((event) => event.id !== targetId)
+    //     console.log(e.pointEvents);
+    //   }
+    // })
+    console.log(targetId);
+    console.log(queen.episodes.id(req.params.episodeId).pointEvents);
+    console.log(queen.episodes);
+    queen.save()
+    .then(() => {
+      res.redirect(`/queens/${queen.id}`)
+      console.log(queen.id);
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/queens/${queen.id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/queens`)
+  })
+}
+
 export {
   newQueen as new,
   create,
@@ -140,4 +171,5 @@ export {
   update,
   addEvent,
   deleteEpisode as delete,
+  removeEvent,
 }

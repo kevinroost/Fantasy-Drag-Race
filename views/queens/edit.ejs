@@ -33,7 +33,10 @@
         <td>
           <% e.pointEvents.forEach(event => { %>
           <p>
-            <%= event.name %>: <%= event.points %> points
+            <form action="/queens/<%= queen._id %>/episodes/<%= e._id %>/pointEvents/<%= event._id %>?_method=DELETE" method="POST">
+              <button type="submit">x</button>
+              <%= event.name %>: <%= event.points %> points
+            </form>
           </p>
           <% }) %>
         </td>
