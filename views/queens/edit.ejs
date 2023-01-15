@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Edit Her</h1>
+  <h1>Edit Here</h1>
   <form action="/queens/<%= queen._id %>?_method=PUT" method="POST">
     <label>Name:
       <input type="text" name="name" value="<%= queen.name %>">
@@ -16,28 +16,55 @@
     <button type="submit">Update</button>
   </form>
 
-  <h1>Apply Point-Triggering Events</h1>
-  <h3>Available</h3>
-  <ul>
-    <% events.forEach(e => { %>
-      <li>
-          <form action="/queens/<%= queen._id %>/events" method="POST">
-            <%= e.name %>, <%= e.points %>
-            <input type="hidden" name="event" value="<%= e._id %>">
-            <button type="submit"> --> </button>
+  <table>
+    <thead>
+      <tr>
+        <th>Episode</th>
+        <th>Point Events</th>
+        <th>All Events</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% queen.episodes.forEach(e => { %>
+      <tr>
+        <td><%= e.number %>. <%= e.title %></td>
+        <td>
+          <% e.pointEvents.forEach(event => { %>
+          <p>
+            <%= event.name %>- <%= event.points %> points
+          </p>
+          <% }) %>
+        </td>
+        <td>
+          <form action="/queens/<%= queen._id %>/episodes/<%= e._id %>/pointEvents" method="POST">
+            <select name="selectedEvent">
+              <% events.forEach(availEvent => { %>
+                <option value="<%= availEvent._id %>"><%= availEvent.name %></option>
+              <% }) %>
+            </select>
+            <button type="submit">Add Event</button>
           </form>
-      </li>
-    <% }) %>
-  </ul>
-
-  <h3>Applied</h3>
-  <ul>
-    <% queen.pointEvents.forEach(e => { %>
-      <li>
-        <%= e.name %>, <%= e.points %>
-      </li>
+        </td>
+        <td>
+          <form action="/queens/<%= queen._id %>/episodes/<%= e._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Episode</button>
+          </form>
+        </td>
+      </tr>
       <% }) %>
-  </ul>
+    </tbody>
+  </table>
+  <form action="/queens/<%= queen._id %>/episodes" method="POST" id="add-episode-form">
+    <label>Number
+      <input type="text" name="number" id="number-input">
+    </label>
+    <label>Title
+      <input type="text" name="title" id="title-input">
+    </label>
+    <button type="submit">Add Episode</button>
+  </form>
+
 </main>
 
 <%- include('../partials/footer') %>
