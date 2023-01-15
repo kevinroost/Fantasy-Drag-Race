@@ -5,9 +5,6 @@ import { Event } from "../models/event.js"
 function index(req, res) {
   Queen.find({})
   .then(queens => {
-    // const total = queens.pointEvents.reduce((prev, event) => {
-    //   prev + event.points
-    // }, 0) 
     res.render('queens', {
       queens: queens,
       title: "All Queens",
@@ -78,11 +75,13 @@ function update(req, res) {
 function addEvent(req, res) {
   Queen.findById(req.params.queenId)
   .then(queen => {
-    console.log(queen.episodes.id(req.params.episodeId));
     queen.episodes.id(req.params.episodeId).pointEvents.push(req.body.selectedEvent)
-    console.log(queen.episodes.id(req.params.episodeId));
-    queen.save()
-    res.redirect(`/queens/${queen._id}`)
+    Event.findById(req.body.selectedEvent)
+    .then(event => {
+      queen.totalPoints += event.points
+      queen.save()
+      res.redirect(`/queens/${queen._id}`)
+    })
   })
   .catch(err => {
     console.log(err)
