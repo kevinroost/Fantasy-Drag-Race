@@ -150,7 +150,6 @@ function removeEvent(req, res) {
     queen.episodes.id(req.params.episodeId).pointEvents = queen.episodes.id(req.params.episodeId).pointEvents.filter(event => !String(event).includes(targetId))
     Event.findById(req.params.eventId)
     .then((event) => {
-      queen.totalPoints -= event.points
       queen.save()
       res.redirect(`/queens/${queen.id}`)
       console.log(queen.id);
