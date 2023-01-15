@@ -1,5 +1,6 @@
 import { Queen } from "../models/queen.js"
 import { Event } from "../models/event.js"
+import { Profile } from "../models/profile.js"
 import { tallyQueensTotalPoints } from "../middleware/middleware.js"
 
 
@@ -14,11 +15,19 @@ function index(req, res) {
     }
   })
   .then(queens => {
-    tallyQueensTotalPoints(queens)
-    queens.forEach(q => {console.log('line 10', q.totalPoints)});
-    res.render('queens', {
-      queens: queens,
-      title: "All Queens",
+    Profile.findById(req.user.profile._id)
+    .then(profile => {
+      console.log('profile', profile);
+      tallyQueensTotalPoints(queens)
+      res.render('queens', {
+        profile,
+        queens: queens,
+        title: "All Queens",
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
     })
   })
   .catch(err => {
