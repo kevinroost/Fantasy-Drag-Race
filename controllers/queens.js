@@ -44,10 +44,8 @@ function create(req, res) {
 
 function edit(req, res) {
   Queen.findById(req.params.id)
+  .populate('episodes.pointEvents')
   .then(queen => {
-    for (let i = 0; i < queen.episodes.length; i++) {
-      queen.populate(`episodes.${i}.pointEvents`)
-    }
     Event.find({})
     .then(events => {
       res.render(`queens/edit`, {
@@ -55,10 +53,6 @@ function edit(req, res) {
         events: events,
         title: 'Update Queen'
       })
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect("/")
     })
   })
   .catch(err => {
@@ -86,6 +80,7 @@ function addEvent(req, res) {
   .then(queen => {
     console.log(queen.episodes.id(req.params.episodeId));
     queen.episodes.id(req.params.episodeId).pointEvents.push(req.body.selectedEvent)
+    console.log(queen.episodes.id(req.params.episodeId));
     queen.save()
     res.redirect(`/queens/${queen._id}`)
   })
