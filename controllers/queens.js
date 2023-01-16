@@ -15,7 +15,7 @@ function index(req, res) {
     }
   })
   .then(queens => {
-    Profile.findById(req.user.profile._id)
+    Profile.findById(req.user?.profile._id)
     .then(profile => {
       console.log('profile', profile);
       tallyQueensTotalPoints(queens)
