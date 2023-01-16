@@ -2,7 +2,22 @@
 <%- include('./partials/nav') %>
 
 <main>
-
+  <% if (user) { %>
+  <h1>MY TEAM</h1>
+  <section id="user-team">
+    <% if (profile.team.length) {
+      profile.team.forEach(teamQueen => { %>
+        <div <%- teamQueen.eliminated ? 'class="eliminated"' : '' %>>
+          <h3>image here</h3>
+          <p><%= teamQueen.name %></p>
+          <p><%= teamQueen.hometown %></p>
+          <p><%= teamQueen.totalPoints %></p>
+        </div>
+    <% })} else { %>
+      <h3>Recruit a Team!</h3>
+    <% } %>
+  </section>
+  <% } %>
 </main>
 
 <%- include('./partials/footer') %>
