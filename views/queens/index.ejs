@@ -4,18 +4,20 @@
 
 <main>
   <h1>MY GIRLS</h1>
-  <section id="queen-card">
+  <section id="queen-card-main">
     <% queens.forEach(q => { %>
-    <div <%- q.eliminated ? 'class="eliminated"' : '' %>>
-      <h3>image here</h3>
-      <p><%= q.name %></p>
-      <p><%= q.hometown %></p>
-      <p><%= q.totalPoints %></p>
-      <a href="/queens/<%= q._id %>">Edit</a>
-      <% if (user && profile.team.length < 5 && !profile.team.includes(q._id)) { %>
-      <form action="/profiles/<%= profile._id %>/team/<%= q._id %>" method="POST"><button type="submit">RECRUIT</button></form>
-      <% } %>
-    </div>
+    <a href="/queens/<%= q._id %>">
+      <div <%- q.eliminated ? 'class="eliminated"' : '' %> class="queen-card">
+        <img src="/headshots/<%= q.name %>.webp" alt="<%= q.name %> headshot">
+        <p><%= q.name %></p>
+        <p><%= q.hometown %></p>
+        <p><%= q.totalPoints %></p>
+        <!-- <a href="/queens/<%= q._id %>">Edit</a> -->
+        <% if (user && profile.team.length < 5 && !profile.team.includes(q._id)) { %>
+        <form action="/profiles/<%= profile._id %>/team/<%= q._id %>" method="POST"><button type="submit">RECRUIT</button></form>
+        <% } %>
+      </div>
+    </a>
 
     <% }) %>
   </section>

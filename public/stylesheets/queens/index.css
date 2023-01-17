@@ -1,3 +1,23 @@
 .eliminated {
   color: red;
 }
+
+.queen-card {
+  width: 250px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 5px;
+}
+
+img {
+  max-width: 95%;
+  border-radius: 50%;
+  align-self: center;
+}
+
+#queen-card-main {
+  display: flex;
+  gap: 4px;
+}
