@@ -1,0 +1,49 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/queens/edit.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Episode</th>
+        <th>Point Events</th>
+      </tr>
+    </thead>
+    <form action="/queens/<%= queen._id %>/episodes?_method=PUT" method="POST" id="edit-episode-form">
+      <tbody>
+        <% queen.episodes.forEach(e => { %>
+          <tr>
+            <td>
+              <label>Number
+                <input type="text" name="number" id="number-input" value="<%= e.number %>">
+              </label>
+            </td>
+            <td>
+              <label>Title
+                <input type="text" name="title" id="title-input" value="<%= e.title %>">
+              </label>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+      <button type="submit">Save Changes</button>
+    </form>
+  </table>
+
+
+
+  <form action="/queens/<%= queen._id %>/episodes" method="POST" id="add-episode-form">
+    <label>Number
+      <input type="text" name="number" id="number-input">
+    </label>
+    <label>Title
+      <input type="text" name="title" id="title-input">
+    </label>
+    <button type="submit">Add Episode</button>
+  </form>
+
+</main>
+
+<%- include('../partials/footer') %>

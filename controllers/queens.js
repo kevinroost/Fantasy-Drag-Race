@@ -174,6 +174,35 @@ function removeEvent(req, res) {
   })
 }
 
+function editEpisode(req, res) {
+  Queen.findById(req.params.id)
+  .then(queen => {
+    res.render('queens/episodes', {
+      queen: queen,
+      title: "Edit Episodes"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/queens`)
+  })
+}
+
+function updateEpisodes(req, res) {
+  Queen.find({})
+  .then(queens => {
+    queens.forEach(q => {
+      q.episodes.forEach((ep, index) => {
+        ep.number = req.body.number[index]
+        ep.title = req.body.title[index]
+        console.log(ep);
+      });
+      q.save()
+    })
+    res.redirect(`/queens/${req.params.id}`)
+  })
+}
+
 export {
   newQueen as new,
   create,
@@ -184,4 +213,6 @@ export {
   addEvent,
   deleteEpisode as delete,
   removeEvent,
+  editEpisode,
+  updateEpisodes,
 }
