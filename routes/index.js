@@ -5,40 +5,31 @@ import { Profile } from "../models/profile.js"
 const router = Router()
 
 router.get('/', function (req, res) {
-  if (req.user) {
-    Profile.findById(req.user.profile._id)
-    .populate({
-      path: 'team',
-      model: 'Queen',
+  Profile.find({})
+  .populate({
+    path: 'team',
+    model: 'Queen',
+    populate: {
+      path: 'episodes',
+      model: 'Episode',
       populate: {
-        path: 'episodes',
-        model: 'Episode',
-        populate: {
-          path: 'pointEvents',
-          model: 'Event'
-        }
+        path: 'pointEvents',
+        model: 'Event'
       }
-    })
-    .then(profile => {
-      tallyQueensTotalPoints(profile.team)
-      res.render('index', {
-        title: 'Home Page',
-        profile
-      })
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect("/")
-    })
-  } else {
+    }
+  })
+  .then(profiles => {
+    profiles.forEach(profile => tallyQueensTotalPoints(profile.team))
+    profiles.sort(function(a, b) {return b.totalPoints - a.totalPoints})
     res.render('index', {
       title: 'Home Page',
+      profiles
     })
-    .catch(err => {
+  })
+  .catch(err => {
       console.log(err)
       res.redirect("/")
-    })
-  }
+  })
 })
 
 export {
