@@ -4,7 +4,7 @@
 
 .queen-card {
   width: 250px;
-  border: black solid 1px;
+  /* border: rgba(0, 0, 0, 0.5) solid 1px; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -12,7 +12,7 @@
   padding: 5px;
   box-shadow: 0 0 16px black;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 img {
@@ -21,7 +21,7 @@ img {
   align-self: center;
 }
 
-#queen-card-main {
+#user-team {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
