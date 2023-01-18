@@ -80,7 +80,7 @@ main a {
   all: unset;
   border-radius: 3px;
   padding: 3px 5px;
-  background-color: #590056;
+  background-color: inherit;
   color: #e08cbc;
 }
 
