@@ -5,31 +5,41 @@ import { tallyQueensTotalPoints } from "../middleware/middleware.js"
 
 
 function index(req, res) {
-  Queen.find({})
-  .populate({
-    path: 'episodes',
-    model: 'Episode',
-    populate: {
-      path: 'pointEvents',
-      model: 'Event'
-    }
+  Profile.find({})
+  .populate("team")
+  .then(profiles => {
+    profiles.forEach(profile => tallyQueensTotalPoints(profile.team))
+    profiles.sort(function(a, b) {return b.totalPoints - a.totalPoints})
   })
-  .then(queens => {
-    Profile.findById(req.user?.profile._id)
-    .then(profile => {
-      console.log('profile', profile);
-      tallyQueensTotalPoints(queens)
-      res.render('queens', {
-        profile,
-        queens: queens,
-        title: "All Queens",
+    Queen.find({})
+    .populate({
+      path: 'episodes',
+      model: 'Episode',
+      populate: {
+        path: 'pointEvents',
+        model: 'Event'
+      }
+    })
+    .then(queens => {
+      Profile.findById(req.user?.profile._id)
+      .then(profile => {
+        console.log('profile', profile);
+        tallyQueensTotalPoints(queens)
+        res.render('queens', {
+          profile,
+          queens: queens,
+          title: "All Queens",
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect("/")
       })
     })
     .catch(err => {
       console.log(err)
       res.redirect("/")
     })
-  })
   .catch(err => {
     console.log(err)
     res.redirect("/")

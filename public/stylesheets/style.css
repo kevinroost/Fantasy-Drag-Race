@@ -49,6 +49,7 @@ input {
   all: unset;
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 4px black;
+  color: #e08cbc;
 }
 
 .left {
