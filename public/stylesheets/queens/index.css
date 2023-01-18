@@ -4,15 +4,13 @@
 
 .queen-card {
   width: 250px;
-  /* border: rgba(0, 0, 0, 0.5) solid 1px; */
+  border: black solid 1px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
   padding: 5px;
-  box-shadow: 0 0 16px black;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  box-shadow: 0 0 10px;
 }
 
 img {

@@ -9,12 +9,11 @@ html {
   /* All ::after pseudo-elements */
   /* height & width will now include border & padding by default but can be overridden as needed */
   box-sizing: inherit;
-  font-family: 'Rowdies', cursive;
 }
 
 body {
   background-color: #e08cbc;
-  color: #590056;
+  color: #f6f6f6;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
@@ -22,7 +21,7 @@ body {
 }
 
 nav {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7) 70%, #e08cbc);
+  background-image: linear-gradient(black 70%, #e08cbc);
   color: #e08cbc;
   display: flex;
   align-items: center;
@@ -63,24 +62,6 @@ input {
 
 button {
   all: unset;
-}
-
-main button {
-  all: unset;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 3px 5px;
-  background-color: #590056;
-  color: #e08cbc;
-}
-
-main a {
-  all: unset;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 3px 5px;
-  background-color: #590056;
-  color: #e08cbc;
 }
 
 nav * {
