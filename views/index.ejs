@@ -1,4 +1,6 @@
 <%- include('./partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/queens/home.css" />
+
 <%- include('./partials/nav') %>
 
 <main>
@@ -7,8 +9,8 @@
   <section id="user-team">
     <% if (profile.team.length) {
       profile.team.forEach(teamQueen => { %>
-        <div <%- teamQueen.eliminated ? 'class="eliminated"' : '' %>>
-          <h3>image here</h3>
+        <div <%- teamQueen.eliminated ? 'class="eliminated"' : '' %> class="queen-card">
+          <img src="/headshots/<%= teamQueen.name %>.webp" alt="<%= teamQueen.name %> headshot">
           <p><%= teamQueen.name %></p>
           <p><%= teamQueen.hometown %></p>
           <p><%= teamQueen.totalPoints %></p>
