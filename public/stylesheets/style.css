@@ -22,7 +22,7 @@ body {
 }
 
 nav {
-  background-image: linear-gradient(#590056 70%, #e08cbc);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7) 70%, #e08cbc);
   color: #e08cbc;
   display: flex;
   align-items: center;
