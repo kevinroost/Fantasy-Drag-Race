@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { tallyQueensTotalPoints } from '../middleware/middleware'
+import { tallyProfileTotalPoints } from '../middleware/middleware.js'
 
 const Schema = mongoose.Schema
 

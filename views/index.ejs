@@ -7,8 +7,10 @@
   <% if (user) { %>
   <h1>MY TEAM</h1>
   <section id="user-team">
-    <% if (profile.team.length) {
-      profile.team.forEach(teamQueen => { %>
+    <% console.log('here', user.profile);
+    if (user.profile.team) {
+      
+      req.user.profile.team.forEach(teamQueen => { %>
         <div <%- teamQueen.eliminated ? 'class="eliminated"' : '' %> class="queen-card">
           <img src="/headshots/<%= teamQueen.name %>.webp" alt="<%= teamQueen.name %> headshot">
           <p><%= teamQueen.name %></p>
@@ -23,7 +25,7 @@
 
   <section id="rankings">
     <h1>CURRENT STANDINGS</h1>
-    
+
   </section>
 </main>
 

@@ -1,11 +1,11 @@
 import { Router } from 'express'
-import { tallyQueensTotalPoints } from '../middleware/middleware.js'
+import { tallyProfileTotalPoints, tallyQueensTotalPoints } from '../middleware/middleware.js'
 import { Profile } from "../models/profile.js"
 
 const router = Router()
 
 router.get('/', function (req, res) {
-  Profile.find({})
+  Profile.findById(req.user?.profile.id)
   .populate({
     path: 'team',
     model: 'Queen',
@@ -18,12 +18,14 @@ router.get('/', function (req, res) {
       }
     }
   })
-  .then(profiles => {
-    profiles.forEach(profile => tallyQueensTotalPoints(profile.team))
-    profiles.sort(function(a, b) {return b.totalPoints - a.totalPoints})
+  .then(profile => {
+    console.log('here', profile);
+    // tallyQueensTotalPoints(profile.team)
+    // tallyProfileTotalPoints(profile)
+    // profile.sort(function(a, b) {return b.totalPoints - a.totalPoints})
     res.render('index', {
       title: 'Home Page',
-      profiles
+      profile
     })
   })
   .catch(err => {

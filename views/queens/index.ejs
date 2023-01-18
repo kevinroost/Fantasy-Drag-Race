@@ -13,7 +13,7 @@
         <p><%= q.hometown %></p>
         <p><%= q.totalPoints %></p>
         <!-- <a href="/queens/<%= q._id %>">Edit</a> -->
-        <% if (user && profile.team.length < 5 && !profile.team.includes(q._id)) { %>
+        <% if (user && profile.team.length < 5 && !profile.team.includes(q)) { %>
         <form action="/profiles/<%= profile._id %>/team/<%= q._id %>" method="POST"><button type="submit">RECRUIT</button></form>
         <% } %>
       </div>
