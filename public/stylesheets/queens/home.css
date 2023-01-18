@@ -17,6 +17,15 @@
   color: #e08cbc;
 }
 
+#name {
+  font-size: 32px;
+
+}
+
+.queen-card p {
+  margin: 0;
+}
+
 img {
   max-width: 95%;
   border-radius: 50%;

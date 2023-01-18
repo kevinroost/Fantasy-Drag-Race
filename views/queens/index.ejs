@@ -7,7 +7,7 @@
   <section id="queen-card-main">
     <% queens.forEach(q => { %>
       <div <%- q.eliminated ? 'class="eliminated"' : '' %> class="queen-card">
-        <img src="/headshots/Amethyst.webp" alt="<%= q.name %> headshot">
+        <img src="/headshots/<%= q.name %>.webp" alt="<%= q.name %> headshot">
         <p id="name"><a href="/queens/<%= q._id %>"><%= q.name %></a></p>
         <p><%= q.hometown %></p>
         <p>Current Points: <%= q.totalPoints %></p>
