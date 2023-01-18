@@ -4,14 +4,13 @@
 
 <main>
   <% if (user) { %>
-  <h1>MY TEAM</h1>
+  <h1>MY GIRLS</h1>
+  <h2>Total Points: <%= profile.totalPoints %></h2>
   <section id="user-team">
-    <% console.log('here', user.profile);
-    if (user.profile.team) {
-      
-      req.user.profile.team.forEach(teamQueen => { %>
+    <% if (profile.team) {
+      queens.forEach(teamQueen => { %>
         <div <%- teamQueen.eliminated ? 'class="eliminated"' : '' %> class="queen-card">
-          <img src="/headshots/<%= teamQueen.name %>.webp" alt="<%= teamQueen.name %> headshot">
+          <img src="/headshots/Amethyst.webp" alt="<%= teamQueen.name %> headshot">
           <p><%= teamQueen.name %></p>
           <p><%= teamQueen.hometown %></p>
           <p><%= teamQueen.totalPoints %></p>

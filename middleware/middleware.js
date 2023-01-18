@@ -13,8 +13,10 @@ function isLoggedIn(req, res, next) {
   res.redirect('/')
 }
 
-function tallyProfileTotalPoints(profile) {
-  profile.totalPoints = profile.team.reduce((prev, queen) => {return prev += queen.totalPoints}, 0)
+function tallyProfileTotalPoints(queens) {
+
+  profile.totalPoints = profile.team.reduce((prev, queen) => {
+    return prev += queen.totalPoints}, 0)
 }
 
 function tallyQueensTotalPoints(queens) {
@@ -26,8 +28,6 @@ function tallyQueensTotalPoints(queens) {
         })
         return prev
       }, 0)
-      console.log(q.totalPoints);
-      q.episodes.forEach(episode => {console.log(episode.pointEvents)})
     }
   })
   return

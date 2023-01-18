@@ -17,7 +17,6 @@ function index(req, res) {
   .then(queens => {
     Profile.findById(req.user?.profile._id)
     .then(profile => {
-      console.log('profile', profile.team);
       tallyQueensTotalPoints(queens)
       res.render('queens', {
         profile,
@@ -80,11 +79,9 @@ function edit(req, res) {
 
 function update(req, res) {
   req.body.eliminated = !!req.body.eliminated
-  console.log(req.body.eliminated);
   Queen.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(queen => {
     res.redirect(`/queens`)
-    console.log(queen);
   })
   .catch(err => {
     console.log(err)
@@ -100,7 +97,6 @@ function addEvent(req, res) {
     Event.findById(req.body.selectedEvent)
     .then(event => {
       queen.save()
-      console.log('line 84', queen.episodes);
       res.redirect(`/queens/${queen._id}`)
     })
   })
@@ -142,7 +138,7 @@ function deleteEpisode(req, res) {
       res.redirect(`/queens/${queen.id}`)
     })
     .catch(err => {
-      console.log('ERROR', err)
+      req.local.log('ERROR', err)
       res.redirect(`/queens/${queen.id}`)
     })
   })
@@ -161,7 +157,6 @@ function removeEvent(req, res) {
     .then((event) => {
       queen.save()
       res.redirect(`/queens/${queen.id}`)
-      console.log(queen.id);
     })
     .catch(err => {
       console.log(err)
@@ -195,7 +190,6 @@ function updateEpisodes(req, res) {
       q.episodes.forEach((ep, index) => {
         ep.number = req.body.number[index]
         ep.title = req.body.title[index]
-        console.log(ep);
       });
       q.save()
     })

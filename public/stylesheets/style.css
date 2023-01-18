@@ -46,7 +46,9 @@ main {
 }
 
 input {
-  all: unset;
+  /* all: unset; */
+  box-shadow: none;
+  border: none;
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 4px black;
   color: #e08cbc;
@@ -76,11 +78,14 @@ main button {
 
 main a {
   all: unset;
-  border: 1px solid black;
   border-radius: 3px;
   padding: 3px 5px;
   background-color: #590056;
   color: #e08cbc;
+}
+
+main a:hover {
+  cursor: pointer;
 }
 
 nav * {
