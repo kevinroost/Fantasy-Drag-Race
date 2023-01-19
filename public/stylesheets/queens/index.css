@@ -28,12 +28,30 @@ img {
   align-self: center;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#team-column {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  height: 100%;
+}
+
 #queen-card-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-self: center;
   gap: 16px;
   max-width: 85%;
+}
+
+#all-queens {
+  align-self: center;
 }
 
 .eliminated {
@@ -46,11 +64,16 @@ img {
 }
 
 #current-team {
-  position: absolute;
+  /* position: absolute; */
   top: 24px;
   left: 8px;
   margin: 16px;
   font-size: 16px;
+}
+
+main {
+  flex-direction: row;
+  align-content: flex-start;
 }
 
 #current-team img {

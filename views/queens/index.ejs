@@ -3,6 +3,8 @@
 <%- include('../partials/nav') %>
 
 <main>
+
+  <section id="team-column">
   <% if (profile?.team) { %>
     <div id="current-team">
       <h4>My Team</h4>
@@ -14,23 +16,28 @@
       <% }) %>
     </div>
   <% } %>
-  <h1>ALL QUEENS</h1>
-  <section id="queen-card-main">
-    <% queens.forEach(q => { console.log('HERE', user?.profile._id)%>
-      <div class="queen-card<%- q.eliminated ? ' eliminated"' : '"' %>">
-        <% if (q.createdBy.equals(user?.profile._id)) { %>
-          <form action="/queens/<%= q._id %>?_method=DELETE" method="POST"><button type="submit" id="delete-queen">x</button></form>
-        <% } %>
-        <img src="/headshots/<%= q.name %>.webp" alt="<%= q.name %> headshot">
-        <p id="name"><a href="/queens/<%= q._id %>"><%= q.name %></a></p>
-        <p class="stat"><%= q.hometown %></p>
-        <p class="stat">Current Points: <%= q.totalPoints %></p>
-        <% if (user && profile.team.length < 5 && !profile.team.includes(q.id)) { %>
-          <form action="/profiles/<%= profile._id %>/team/<%= q._id %>" method="POST"><button type="submit">RECRUIT</button></form>
-        <% } %>
-      </div>
-    <% }) %>
   </section>
+
+  <section>
+    <h1 id="all-queens">ALL QUEENS</h1>
+    <div id="queen-card-main">
+      <% queens.forEach(q => { console.log('HERE', user?.profile._id)%>
+        <div class="queen-card<%- q.eliminated ? ' eliminated"' : '"' %>">
+          <% if (q.createdBy.equals(user?.profile._id)) { %>
+            <form action="/queens/<%= q._id %>?_method=DELETE" method="POST"><button type="submit" id="delete-queen">x</button></form>
+          <% } %>
+          <img src="/headshots/<%= q.name %>.webp" alt="<%= q.name %> headshot">
+          <p id="name"><a href="/queens/<%= q._id %>"><%= q.name %></a></p>
+          <p class="stat"><%= q.hometown %></p>
+          <p class="stat">Current Points: <%= q.totalPoints %></p>
+          <% if (user && profile.team.length < 5 && !profile.team.includes(q.id)) { %>
+            <form action="/profiles/<%= profile._id %>/team/<%= q._id %>" method="POST"><button type="submit">RECRUIT</button></form>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
 </main>
 
 <%- include('../partials/footer') %>
