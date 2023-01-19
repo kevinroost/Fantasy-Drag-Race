@@ -206,8 +206,6 @@ function deleteQueen(req, res) {
       .then(()=> {
         res.redirect(`/queens`)
       })
-    } else {
-      throw new Error('🚫 Not authorized 🚫')
     }
   })
   .catch(err => {
