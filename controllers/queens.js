@@ -16,6 +16,7 @@ function index(req, res) {
   })
   .then(queens => {
     Profile.findById(req.user?.profile._id)
+    .populate("team")
     .then(profile => {
       tallyQueensTotalPoints(queens)
       res.render('queens', {

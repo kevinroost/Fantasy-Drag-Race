@@ -4,16 +4,16 @@
 
 <main>
   <% if (user) { %>
+    <% if (profile.team.length) { %>
   <h1>MY GIRLS</h1>
   <h2>Total Points: <%= profile.totalPoints %></h2>
   <section id="user-team">
-    <% if (profile.team) {
-      queens.forEach(teamQueen => { %>
+      <% queens.forEach(teamQueen => { %>
         <div class="queen-card<%- teamQueen.eliminated ? ' eliminated"' : '"' %>">
           <img src="/headshots/<%= teamQueen.name %>.webp" alt="<%= teamQueen.name %> headshot">
           <p id="name"><%= teamQueen.name %></p>
-          <p><%= teamQueen.hometown %></p>
-          <p><%= teamQueen.totalPoints %></p>
+          <p class="stat"><%= teamQueen.hometown %></p>
+          <p class="stat"><%= teamQueen.totalPoints %></p>
         </div>
     <% })} else { %>
       <h3>Recruit a Team!</h3>
