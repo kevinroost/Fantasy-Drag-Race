@@ -1,11 +1,18 @@
 <%- include('../partials/html-head') %>
-
+<link rel="stylesheet" href="/stylesheets/queens/rankings.css">
 <%- include('../partials/nav') %>
 
 <main>
   <h1>CURRENT STANDINGS</h1>
-  <% profiles.forEach(profile => { %>
-    <h4><%= profile.name %>: <%= profile.totalPoints %></h4>
+  <% profiles.forEach((profile, index) => { %>
+    <div class="rank">  
+      <h2><%= index + 1 %>. <%=profile.name %>: <%= profile.totalPoints %></h2>
+      <p>
+      <% profile.team.forEach(q => { %>
+        <img src="/headshots/<%= q.name %>.webp" alt="">
+      <% }) %>
+      </p>
+    </div>    
   <% }) %>
 </main>
 
