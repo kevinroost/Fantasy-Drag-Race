@@ -3,8 +3,8 @@
   border: rgba(0, 0, 0, 0.5) solid 1px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-content: center;
+  justify-content: space-between;
   gap: 8px;
   padding: 5px;
   box-shadow: 0 0 16px black;

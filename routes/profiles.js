@@ -6,6 +6,7 @@ const router = Router()
 
 router.get('/rankings', profilesCtrl.ranks)
 router.post('/:profileId/team/:queenId', profilesCtrl.recruitQueen)
+router.delete('/:profileId/team/:queenId', profilesCtrl.benchQueen)
 
 export {
   router

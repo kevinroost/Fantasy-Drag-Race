@@ -54,7 +54,23 @@ function ranks(req, res) {
   })
 }
 
+function benchQueen(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.team.remove({_id: req.params.queenId})
+    profile.save()
+    .then(()=> {
+      res.redirect(`/queens`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/queens`)
+  })
+}
+
 export {
   recruitQueen,
-  ranks
+  ranks,
+  benchQueen
 }

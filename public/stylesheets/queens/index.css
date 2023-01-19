@@ -3,8 +3,8 @@
   border: rgba(0, 0, 0, 0.5) solid 1px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-content: center;
+  justify-content: space-between;
   gap: 8px;
   padding: 5px;
   box-shadow: 0 0 16px black;
@@ -63,6 +63,12 @@ section {
   border: none;
 }
 
+#bench {
+  background-color: inherit;
+  border: none;
+  color: #590056;
+}
+
 #current-team {
   /* position: absolute; */
   top: 24px;
@@ -83,6 +89,12 @@ main {
 #current-team div {
   font-size: 10px;
   display: flex;
+  align-items: center;
   margin: 6px 0;
   gap: 4px;
+}
+
+#recruit-queen {
+  align-self: center;
+  justify-self: flex-end;
 }
