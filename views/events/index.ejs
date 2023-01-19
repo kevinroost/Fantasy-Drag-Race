@@ -39,7 +39,7 @@
         </form>
         <p><%= e.name %>, worth <%= e.points %> points</p>
         <form action="/events/<%= e._id %>" method="POST">
-          <button type="submit">Approve</button>
+          <% if (user._id == "63c2d1346bd2d1fba931e899") { %><button type="submit">Approve</button> <% } %>
         </form>
       </li>
     <% }}) %>
