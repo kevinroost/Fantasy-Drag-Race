@@ -48,6 +48,7 @@ section {
   align-self: center;
   gap: 16px;
   max-width: 85%;
+  margin-bottom: 16px;
 }
 
 #all-queens {
