@@ -23,7 +23,7 @@ Finally! An app that lets you and your friends get together and create a fantasy
 
 
 ## __ATTRIBUTIONS__
-- The _Idea_: [Mallory Steffes](https://github.com/malloryrsteffes)
+- The _Idea_: [Mallory Steffes](https://www.mallorysteffes.com/)
 - Font: [Google Fonts](https://fonts.google.com/)
 - Cast Headshots: [GoldDerby](https://goldderby.com)
 - Flavicon: [IMGBIN](https://imgbin.com/free-png/unicorn-horn)
