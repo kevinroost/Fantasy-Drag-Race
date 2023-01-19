@@ -3,13 +3,15 @@ import { Profile } from "../models/profile.js"
 import { tallyQueensTotalPoints } from '../middleware/middleware.js'
 import { tallyProfileTotalPoints } from '../middleware/middleware.js'
 import { Queen } from "../models/queen.js"
+import { ranks } from "../controllers/profiles.js"
 
 const router = Router()
 
 router.get('/', function (req, res) {
   if (req.user) {
-    Profile.findById(req.user.profile._id)
+    Profile.findById(req.user.profile.id)
     .then(profile => {
+      console.log('XXXX', profile);
       Queen.find({_id: {$in: profile.team}})
       .populate({
         path: 'episodes',
@@ -23,7 +25,6 @@ router.get('/', function (req, res) {
         tallyQueensTotalPoints(queens)
         profile.totalPoints = 0
         queens.forEach(queen => profile.totalPoints += queen.totalPoints)
-        console.log('profile', profile)
         res.render('index', {
           title: 'Home Page',
           queens,
@@ -47,5 +48,5 @@ router.get('/', function (req, res) {
 })
 
 export {
-  router
+  router,
 }

@@ -15,7 +15,10 @@
 
 #name {
   font-size: 32px;
+}
 
+.not-logged-in {
+  color: #590056;
 }
 
 .queen-card p {

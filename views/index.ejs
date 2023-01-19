@@ -19,12 +19,11 @@
       <h3>Recruit a Team!</h3>
     <% } %>
   </section>
+  <% } else { %>
+    <a href="/queens"><h1 class="not-logged-in">SEE THE GIRLS</h1></a>
+    <a href="/profiles/rankings"><h1 class="not-logged-in">SEE THE RANKINGS</h1></a>
   <% } %>
 
-  <section id="rankings">
-    <h1>CURRENT STANDINGS</h1>
-
-  </section>
 </main>
 
 <%- include('./partials/footer') %>

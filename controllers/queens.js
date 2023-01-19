@@ -1,7 +1,7 @@
 import { Queen } from "../models/queen.js"
 import { Event } from "../models/event.js"
 import { Profile } from "../models/profile.js"
-import { tallyQueensTotalPoints } from "../middleware/middleware.js"
+import { tallyProfileTotalPoints, tallyQueensTotalPoints } from "../middleware/middleware.js"
 
 
 function index(req, res) {

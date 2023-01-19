@@ -1,0 +1,12 @@
+<%- include('../partials/html-head') %>
+
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>CURRENT STANDINGS</h1>
+  <% profiles.forEach(profile => { %>
+    <h4><%= profile.name %>: <%= profile.totalPoints %></h4>
+  <% }) %>
+</main>
+
+<%- include('../partials/footer') %>
