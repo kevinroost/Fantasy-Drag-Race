@@ -22,6 +22,7 @@ function index(req, res) {
         profile,
         queens: queens,
         title: "All Queens",
+        user: req.user,
       })
     })
     .catch(err => {
@@ -197,6 +198,24 @@ function updateEpisodes(req, res) {
   })
 }
 
+function deleteQueen(req, res) {
+  Queen.findById(req.params.id)
+  .then(queen => {
+    if (queen.createdBy.equals(req.user.profile._id)) {
+      queen.delete()
+      .then(()=> {
+        res.redirect(`/queens`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/queens')
+  })
+}
+
 export {
   newQueen as new,
   create,
@@ -209,4 +228,5 @@ export {
   removeEvent,
   editEpisode,
   updateEpisodes,
+  deleteQueen,
 }

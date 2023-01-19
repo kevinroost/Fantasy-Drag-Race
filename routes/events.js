@@ -5,8 +5,8 @@ import { isLoggedIn } from "../middleware/middleware.js"
 const router = Router()
 
 router.get('/', isLoggedIn, eventsCtrl.index)
-router.post('/', eventsCtrl.create)
-router.delete('/:id', eventsCtrl.delete)
+router.post('/', isLoggedIn, eventsCtrl.create)
+router.delete('/:id', isLoggedIn, eventsCtrl.delete)
 
 export {
   router

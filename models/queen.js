@@ -14,7 +14,7 @@ const queenSchema = new Schema({
   createdBy: { type: Schema.Types.ObjectId, ref: "Profile" },
   eliminated: Boolean,
   episodes: [episodeSchema],
-  totalPoints: Number
+  totalPoints: Number,
 }, {
   timestamps: true
 })

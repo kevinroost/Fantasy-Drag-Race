@@ -38,3 +38,8 @@ img {
 .eliminated {
   background: rgb(117, 0, 0)
 }
+
+#delete-queen {
+  background-color: inherit;
+  border: none;
+}

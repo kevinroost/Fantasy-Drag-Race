@@ -5,8 +5,11 @@
 <main>
   <h1>ALL QUEENS</h1>
   <section id="queen-card-main">
-    <% queens.forEach(q => { %>
+    <% queens.forEach(q => { console.log('HERE', user?.profile._id)%>
       <div class="queen-card<%- q.eliminated ? ' eliminated"' : '"' %>">
+        <% if (q.createdBy.equals(user?.profile._id)) { %>
+          <form action="/queens/<%= q._id %>?_method=DELETE" method="POST"><button type="submit" id="delete-queen">x</button></form>
+        <% } %>
         <img src="/headshots/<%= q.name %>.webp" alt="<%= q.name %> headshot">
         <p id="name"><a href="/queens/<%= q._id %>"><%= q.name %></a></p>
         <p><%= q.hometown %></p>
