@@ -16,19 +16,35 @@
     </form>
 
   <section>
-    <h1>List of PT Events</h1>
+    <h1>List of Approved PT Events</h1>
     <ul>
-    <% events.forEach(e => { %>
+    <% events.forEach(e => { if (e.approved) { %>
       <li class="event-list-item">
-        <p><%= e.name %>, worth <%= e.points %> points</p>
         <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
           <button type="submit">x</button>
         </form>
+        <p><%= e.name %>, worth <%= e.points %> points</p>
       </li>
-    <% }) %>
+    <% }}) %>
     </ul>
   </section>
-
+  
+  <section>
+    <h1>List of Pending PT Events</h1>
+    <ul>
+    <% events.forEach(e => { if (!e.approved) { %>
+      <li class="event-list-item">
+        <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
+          <button type="submit">x</button>
+        </form>
+        <p><%= e.name %>, worth <%= e.points %> points</p>
+        <form action="/events/<%= e._id %>" method="POST">
+          <button type="submit">Approve</button>
+        </form>
+      </li>
+    <% }}) %>
+    </ul>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>

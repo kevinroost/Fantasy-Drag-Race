@@ -37,5 +37,5 @@ export {
   passDataToView,
   isLoggedIn,
   tallyQueensTotalPoints,
-  tallyProfileTotalPoints
+  tallyProfileTotalPoints,
 }

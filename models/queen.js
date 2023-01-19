@@ -17,7 +17,7 @@ const queenSchema = new Schema({
       'Aura Mayari',
       'Irene Dubois',
       'Jax',
-      'Loosey Laduca',
+      'Loosey LaDuca',
       'Luxx Noir London',
       'Malaysia Babydoll Foxx',
       'Marcia Marcia Marcia',

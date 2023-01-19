@@ -43,9 +43,9 @@
         <td>
           <form action="/queens/<%= queen._id %>/episodes/<%= e._id %>/pointEvents" method="POST">
             <select name="selectedEvent">
-              <% events.forEach(availEvent => { %>
+              <% events.forEach(availEvent => { if (availEvent.approved) {%>
                 <option value="<%= availEvent._id %>"><%= availEvent.name %></option>
-              <% }) %>
+              <% }}) %>
             </select>
             <button type="submit">Add Event</button>
           </form>

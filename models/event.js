@@ -5,6 +5,7 @@ const Schema = mongoose.Schema
 const eventSchema = new Schema({
   name: String,
   points: Number,
+  approved: Boolean,
 }, {
   timestamps: true
 })
