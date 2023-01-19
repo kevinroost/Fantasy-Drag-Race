@@ -48,15 +48,22 @@ function newQueen(req, res) {
 }
 
 function create(req, res) {
-  req.body.createdBy = req.user.profile._id
-  req.body.eliminated = false
-  Queen.create(req.body)
+  Queen.find({})
   .then(queens => {
-    res.redirect('/queens')
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/")
+    if (!queens.some((queen) => queen.name === req.body.name)) {
+      req.body.createdBy = req.user.profile._id
+      req.body.eliminated = false
+      Queen.create(req.body)
+      .then(queens => {
+        res.redirect('/queens')
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect("/")
+      })
+    } else {
+      res.redirect('/queens/new')
+    }
   })
 }
 
