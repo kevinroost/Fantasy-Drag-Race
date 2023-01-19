@@ -4,7 +4,7 @@
 
 <main>
   <% if (user) { %>
-    <% if (profile.team.length) { %>
+    <% if (profile.team.length > 0) { console.log(profile)%>
   <h1>MY GIRLS</h1>
   <h2>Total Points: <%= profile.totalPoints %></h2>
   <section id="user-team">
@@ -16,7 +16,7 @@
           <p class="stat">Current Points: <%= teamQueen.totalPoints %></p>
         </div>
     <% })} else { %>
-      <h3>Recruit a Team!</h3>
+      <a href="/queens" id="recruit-prompt"><h3>>>Recruit a Team!<<</h3></a>
     <% } %>
   </section>
   <% } else { %>

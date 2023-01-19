@@ -42,3 +42,12 @@ img {
 .eliminated {
   background: rgb(117, 0, 0)
 }
+
+#recruit-prompt {
+  color: #590056;
+  font-size: 64px;
+}
+
+#recruit-prompt :hover {
+  text-decoration: underline;
+}

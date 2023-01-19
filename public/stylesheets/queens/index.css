@@ -38,7 +38,13 @@ section {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
+  align-content: center;
   height: 100%;
+  min-width: fit-content;
+}
+
+#team-column h4 {
+  text-align: center;
 }
 
 #queen-card-main {
@@ -93,6 +99,7 @@ main {
   align-items: center;
   margin: 6px 0;
   gap: 4px;
+  min-width: fit-content;
 }
 
 #recruit-queen {
