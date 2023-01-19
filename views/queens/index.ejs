@@ -22,7 +22,7 @@
   <section>
     <h1 id="all-queens">ALL QUEENS</h1>
     <div id="queen-card-main">
-      <% queens.forEach(q => { console.log('HERE', user?.profile._id)%>
+      <% queens.forEach(q => { %>
         <div class="queen-card<%- q.eliminated ? ' eliminated"' : '"' %>">
           <% if (q.createdBy.equals(user?.profile._id)) { %>
             <form action="/queens/<%= q._id %>?_method=DELETE" method="POST"><button type="submit" id="delete-queen">x</button></form>
@@ -31,7 +31,7 @@
           <p id="name"><a href="/queens/<%= q._id %>"><%= q.name %></a></p>
           <p class="stat"><%= q.hometown %></p>
           <p class="stat">Current Points: <%= q.totalPoints %></p>
-          <% if (user && profile.team.length < 5 && !profile.team.includes(q.id)) { %>
+          <% if (user && profile.team.length < 5 && !profile.team.some((queen) => queen.name === q.name)) { %>
             <form action="/profiles/<%= profile._id %>/team/<%= q._id %>" method="POST" id="recruit-queen"><button type="submit">RECRUIT</button></form>
           <% } %>
         </div>
