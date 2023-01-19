@@ -6,10 +6,10 @@
   <h1>Edit Here</h1>
   <form action="/queens/<%= queen._id %>?_method=PUT" method="POST">
     <label>Name:
-      <input type="text" name="name" value="<%= queen.name %>">
+      <input type="text" name="name" value="<%= queen.name %>" autocomplete="off">
     </label>
     <label>Hometown:
-      <input type="text" name="hometown" value="<%= queen.hometown %>">
+      <input type="text" name="hometown" value="<%= queen.hometown %>" autocomplete="off">
     </label>
     <label>Eliminated?
       <input class="checkbox" type="checkbox" name="eliminated" <%- queen.eliminated ? 'checked' : '' %>>
