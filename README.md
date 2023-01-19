@@ -1,44 +1,38 @@
 # __FANTASY DRAG RACE__
 
-<img src="./assets/SC1.png" alt="drawing" width="300"/>
-<img src="./assets/SC2.png" alt="drawing" width="300"/>
+## screenshots
 
+Finally! An app that lets you and your friends get together and create a fantasy league... for Ru Paul's Drag Race! After all the queens have been introduced, in the case of this season, after episode 2, any number of people can join and draft a team of 5 queens. As the episodes air, each queen's total points will go up (or down!) depending on her performance in the episode. Users can even suggest additional ways to earn points, but only before the teams are finalized. 
 
-
-
-
-Boss Battles is a text based battle simulator that pits players against 5 different enemies, gathering loot along the way. After the player chooses one of three classes, each with unique starting stats, they come face-to-face with their first opponent. Once defeated, the boss drops 3 pieces of equipment that the player will choose from. Each piece of equipment will boost certain stats upon pick-up, setting up the player for the next battle. Victory comes when all 5 bosses are defeated!
-
-## __[PLAY THE GAME HERE](https://kevinroost-bossbattles.netlify.app/)__
+## __[PLAY THE GAME HERE](https://fantasy-drag-race.fly.dev)__
 
 ## __PLANNING MATERIALS__
-Since I initially planned out my project on a private Trello board, I copied the steps into [this](https://docs.google.com/document/d/1dwlSJvjfghr4bocWK8UAslhji3oxzZKQBtyaYomB0CQ/edit?usp=sharing) Google Doc.
+[Trello!](https://trello.com/invite/b/kq6OM2Im/ATTI46f04db133f7380ca82d889629c15a1470C7D740/fantasy-drag)
 
 ## __TECHNOLOGIES USED__
-- ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-- ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-- ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-- ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-- ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+- HTML5
+- JavaScript
+- CSS3
+- Node
+- Express
+- EJS
+- Mongoose
+- MongoDB
+- Git
+- GitHub
 
 
 ## __ATTRIBUTIONS__
-- Rainbow Gradient: [StackOverflow](https://stackoverflow.com/questions/56418763/creating-the-perfect-rainbow-gradient-in-css)
+- The _Idea_: [Mallory Steffes](https://github.com/malloryrsteffes)
 - Font: [Google Fonts](https://fonts.google.com/)
-- Fireworks Animation: [Eddie Lin](https://jsfiddle.net/user/elin/fiddles/)
-- Background Picture: [FreePik.com](https://www.freepik.com/free-photos-vectors/jungle-background)
-- Flavicon: [Twitter - @BBART](https://twitter.com/bbpac)
+- Cast Headshots: [GoldDerby](https://goldderby.com)
+- Flavicon: [IMGBIN](https://imgbin.com/free-png/unicorn-horn)
 
 
 ## __ICE BOX__
 
-- [ ] Fix color scheme
-- [ ] Add additional classes
+- [ ] Only allow team editing UP TO the start of the episode following the intro episodes
+- [ ] Buffer PT Event suggestions by another collection that only an admin has access to for approval
 - [ ] Add sound effects
-- [ ] Refactor for smaller screens
-- [ ] Graphics for each enemy
-- [ ] Add another attack type
-- [ ] Refine selectors for easy styling
-- [ ] Button animation
-- [ ] Add probability for each item
-- [ ] New Background
+- [ ] Add notifications for a queen on your team earning points
+
