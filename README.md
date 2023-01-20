@@ -35,4 +35,5 @@ Finally! An app that lets you and your friends get together and create a fantasy
 - [ ] Buffer PT Event suggestions by another collection that only an admin has access to for approval
 - [ ] Add sound effects
 - [ ] Add notifications for a queen on your team earning points
+- [ ] Center the app's title in the nav bar
 

@@ -22,6 +22,10 @@
   color: #590056;
 }
 
+a :hover {
+  text-decoration: underline;
+}
+
 .queen-card p {
   margin: 0;
 }

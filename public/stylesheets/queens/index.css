@@ -43,7 +43,7 @@ section {
   min-width: fit-content;
 }
 
-#team-column h4 {
+#team-column > * {
   text-align: center;
 }
 
@@ -63,6 +63,10 @@ section {
 
 .eliminated {
   background: rgb(117, 0, 0)
+}
+
+.eliminated button {
+  background-color: rgb(117, 0, 0);
 }
 
 #delete-queen {

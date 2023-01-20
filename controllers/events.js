@@ -3,10 +3,10 @@ import { Event } from "../models/event.js"
 function index(req, res) {
   Event.find({})
   .then(events => {
+    console.log('RENDER WORKS');
     res.render('events', {
       title: "New Event",
       events: events,
-      valueMsg
     })
   })
   .catch(err => {
