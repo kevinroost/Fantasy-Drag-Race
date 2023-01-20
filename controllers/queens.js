@@ -213,7 +213,6 @@ function editEpisode(req, res) {
 function updateEpisodes(req, res) {
   Queen.find({})
   .then(queens => {
-    console.log(req.body);
     queens.forEach(q => {
       q.episodes.forEach((ep, index) => {
         if (q.episodes.length === 1) {
