@@ -141,21 +141,38 @@ function createEpisode(req, res) {
 function deleteEpisode(req, res) {
   Queen.findById(req.params.queenId)
   .then(queen => {
-    let id = req.params.episodeId
-    queen.episodes.id(id).remove()
-    queen.save()
-    .then(episode => {
-      res.redirect(`/queens/${queen.id}`)
+    Queen.find({})
+    .then(queens => {
+      queens.forEach(q => {
+        let id = req.params.episodeId
+        q.episodes[queen.episodes.indexOf(queen.episodes.id(id))].remove()
+        q.save()
+        console.log('TESTTEST', q);
+      })
+      res.redirect(`/queens/${queen._id}`)
     })
     .catch(err => {
-      req.local.log('ERROR', err)
-      res.redirect(`/queens/${queen.id}`)
+      console.log(err)
+      res.redirect(`/queens`)
     })
   })
-  .catch(err => {
-    console.log(err)
-    res.redirect(`/queens`)
-  })
+  // Queen.findById(req.params.queenId)
+  // .then(queen => {
+  //   let id = req.params.episodeId
+  //   queen.episodes.id(id).remove()
+  //   queen.save()
+  //   .then(episode => {
+  //     res.redirect(`/queens/${queen.id}`)
+  //   })
+  //   .catch(err => {
+  //     req.local.log('ERROR', err)
+  //     res.redirect(`/queens/${queen.id}`)
+  //   })
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  //   res.redirect(`/queens`)
+  // })
 }
 
 function removeEvent(req, res) {
