@@ -154,7 +154,7 @@ function deleteEpisode(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect(`/queens/${queen.id}`)
+    res.redirect(`/queens`)
   })
 }
 
@@ -196,6 +196,7 @@ function editEpisode(req, res) {
 function updateEpisodes(req, res) {
   Queen.find({})
   .then(queens => {
+    console.log(req.body);
     queens.forEach(q => {
       q.episodes.forEach((ep, index) => {
         ep.number = req.body.number[index]
