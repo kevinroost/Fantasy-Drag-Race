@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const episodeSchema = new Schema({
-  number: Number,
+  number: String,
   title: String,
   pointEvents: [{type: Schema.Types.ObjectId, ref: "Event", default: []}]
 })
