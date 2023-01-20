@@ -16,8 +16,17 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.approved = false
+  if (req.body.points == (NaN || '')) {
+    req.body.points = 0
+  }
   Event.create(req.body)
-  res.redirect('/events')
+  .then(() => {
+    res.redirect('/events')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/events")
+  })
 }
 
 function deleteEvent(req, res) {

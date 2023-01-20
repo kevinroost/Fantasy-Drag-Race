@@ -7,10 +7,7 @@ const eventSchema = new Schema({
     type: String,
     required: true
   },
-  points: {
-    type: Number,
-    required: true
-  },
+  points: Number,
   approved: Boolean,
 }, {
   timestamps: true
