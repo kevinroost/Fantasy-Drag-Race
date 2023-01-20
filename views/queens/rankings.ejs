@@ -6,7 +6,7 @@
   <h1>CURRENT STANDINGS</h1>
   <% profiles.forEach((profile, index) => { %>
     <div class="rank">  
-      <h2><%= index + 1 %>. <%=profile.name %>: <%= profile.totalPoints %></h2>
+      <h2><%= index + 1 %>. <%= profile.name.split(' ')[0] %> <%= profile.name.split(' ')[1][0] %>: <%= profile.totalPoints %></h2>
       <p>
       <% profile.team.forEach(q => { %>
         <img src="/headshots/<%= q.name %>.webp" alt="">
