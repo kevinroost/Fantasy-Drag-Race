@@ -17,13 +17,6 @@
     <div class="right">
     <% if (user) { %>
       <p>Hello, <%= user.profile.name %></p>
-      <p>
-        <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-        style="width:30px"
-        />
-      </p>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
       </a>
