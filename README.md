@@ -32,7 +32,7 @@ Finally! An app that lets you and your friends get together and create a fantasy
 ## __ICE BOX__
 
 - [ ] Only allow team editing UP TO the start of the episode following the intro episodes
-- [ ] Buffer PT Event suggestions by another collection that only an admin has access to for approval
+- [x] Buffer PT Event suggestions by another collection that only an admin has access to for approval
 - [ ] Add sound effects
 - [ ] Add notifications for a queen on your team earning points
 - [ ] Center the app's title in the nav bar
