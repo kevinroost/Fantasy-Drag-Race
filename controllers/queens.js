@@ -216,8 +216,13 @@ function updateEpisodes(req, res) {
     console.log(req.body);
     queens.forEach(q => {
       q.episodes.forEach((ep, index) => {
-        ep.number = req.body.number[index]
-        ep.title = req.body.title[index]
+        if (q.episodes.length === 1) {
+          ep.number = req.body.number
+          ep.title = req.body.title
+        } else {
+          ep.number = req.body.number[index]
+          ep.title = req.body.title[index]
+        }
       });
       q.save()
     })
