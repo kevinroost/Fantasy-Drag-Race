@@ -1,4 +1,21 @@
+main {
+  gap: 24px;
+}
+
+main a {
+  color: #590056;
+}
+
 table * {
   padding: 10px;
   margin: 3px;
+}
+
+.episode-table {
+  border: 3px #590056 solid;
+}
+
+th,
+td {
+  border: 3px #590056 solid;
 }
