@@ -54,6 +54,8 @@ input {
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 4px black;
   color: #e08cbc;
+  font-size: 16px;
+  padding: 4px;
 }
 
 .left {
