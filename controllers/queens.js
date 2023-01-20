@@ -19,6 +19,7 @@ function index(req, res) {
     .populate("team")
     .then(profile => {
       tallyQueensTotalPoints(queens)
+      queens.sort(function(a, b) {return b.totalPoints - a.totalPoints})
       res.render('queens', {
         profile,
         queens: queens,

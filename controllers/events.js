@@ -5,7 +5,8 @@ function index(req, res) {
   .then(events => {
     res.render('events', {
       title: "New Event",
-      events: events
+      events: events,
+      valueMsg
     })
   })
   .catch(err => {
