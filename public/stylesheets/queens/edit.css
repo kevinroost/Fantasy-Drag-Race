@@ -19,3 +19,7 @@ th,
 td {
   border: 3px #590056 solid;
 }
+
+#save-episodes {
+  cursor: pointer;
+}

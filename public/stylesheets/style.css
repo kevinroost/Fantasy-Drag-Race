@@ -74,6 +74,7 @@ input {
 
 button {
   all: unset;
+  cursor: pointer;
 }
 
 main button {
@@ -109,3 +110,7 @@ img {
   align-self: center;
 }
 
+button :hover,
+a :hover {
+  cursor: pointer;
+}
