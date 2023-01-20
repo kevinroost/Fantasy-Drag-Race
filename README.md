@@ -1,6 +1,6 @@
 # __FANTASY DRAG RACE__
 
-![](./public/FDR Screenshot.png)
+![](./public/FDR-Screenshot.png)
 
 Finally! An app that lets you and your friends get together and create a fantasy league... for Ru Paul's Drag Race! After all the queens have been introduced, in the case of this season, after episode 2, any number of people can join and draft a team of 5 queens. As the episodes air, each queen's total points will go up (or down!) depending on her performance in the episode. Users can even suggest additional ways to earn points, but only before the teams are finalized. 
 
