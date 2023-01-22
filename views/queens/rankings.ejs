@@ -4,7 +4,8 @@
 
 <main>
   <h1>CURRENT STANDINGS</h1>
-  <% profiles.forEach((profile, index) => { %>
+  <% profiles.forEach((profile, index) => { 
+    if (profile.team.length > 0) { %>
     <div class="rank">  
       <h2><%= index + 1 %>. <%= profile.name.split(' ')[0] %> <%= profile.name.split(' ')[1][0] %>: <%= profile.totalPoints %></h2>
       <p>
@@ -13,7 +14,7 @@
       <% }) %>
       </p>
     </div>    
-  <% }) %>
+  <% }}) %>
 </main>
 
 <%- include('../partials/footer') %>
